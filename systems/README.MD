@@ -1,0 +1,1 @@
+A complete configuration.nix for each system - e.g. for the test VM, including the base + desktop, but also setting the virtualbox share up.

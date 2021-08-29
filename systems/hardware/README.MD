@@ -1,0 +1,1 @@
+Place to put hardware-configuration.nix's for each system, labelled by hostname
