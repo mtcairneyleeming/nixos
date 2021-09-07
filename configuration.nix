@@ -1,8 +1,7 @@
-# Just import the 
-
 { config, pkgs, ... }:
 
 {
-  imports = [ ./systems/testvm.nix ];
+  ## change the import for the system in question
+  imports = [ ./systems/home-desktop.nix ];
 }
 

@@ -1,4 +1,4 @@
-{ config, pkgs, options, ... }:
+{ config, pkgs, options, lib,... }:
 
 {
   # Allow software with an unfree license
@@ -30,6 +30,16 @@
     wget
     git
   ];
+
+
+  # add a list of all packages to a file
+  environment.etc."current-system-packages".text =
+    let
+      packages = builtins.map (p: "${p.name}") config.environment.systemPackages;
+      sortedUnique = builtins.sort builtins.lessThan (lib.unique packages);
+      formatted = builtins.concatStringsSep "\n" sortedUnique;
+    in
+      formatted;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
